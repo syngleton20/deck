@@ -5,7 +5,7 @@ class Flashcard {
 	}
 }
 
-let flipped = false;
+let flipped = false, everFlipped = false;
 let flashcardIdx = 0;
 const flashcards = [];
 
@@ -14,6 +14,7 @@ const openButton = document.querySelector(".open");
 const rememberButton = document.querySelector(".remember");
 const forgotButton = document.querySelector(".forgot");
 
+/* Initialization */
 flashcard.addEventListener("click", () => {flashcard_flip()});
 rememberButton.addEventListener("click", () => {flashcard_remember()});
 forgotButton.addEventListener("click", () => {flashcard_forgot()});
@@ -29,9 +30,22 @@ openButton.onchange = e => {
 	};
 };
 
-flashcard.style.visibility = 'hidden';
-rememberButton.style.visibility = 'hidden';
-forgotButton.style.visibility = 'hidden';
+refreshView();
+
+/* Functions */
+function refreshView() {
+	if (flashcards.length > 0 && flashcardIdx >= 0 && flashcardIdx < flashcards.length) {
+		flashcard.style.visibility = 'visible';
+		flashcard.innerHTML = flipped ? flashcards[flashcardIdx].definition : flashcards[flashcardIdx].term;
+
+		rememberButton.style.visibility = everFlipped ? 'visible' : 'hidden';
+		forgotButton.style.visibility = everFlipped ? 'visible' : 'hidden';
+	} else {
+		flashcard.style.visibility = 'hidden';
+		rememberButton.style.visibility = 'hidden';
+		forgotButton.style.visibility = 'hidden';
+	}
+}
 
 function flashcard_open(content) {
 	const lines = content.split("\n");
@@ -45,17 +59,13 @@ function flashcard_open(content) {
 		flashcards.push(newFlashcard);
 	}
 
-	flashcard.style.visibility = 'visible';
-	rememberButton.style.visibility = 'visible';
-	forgotButton.style.visibility = 'visible';
-
-	flashcard.innerHTML = flashcards[flashcardIdx].term;
+	refreshView();
 }
 
 function flashcard_flip() {
-    flipped = !flipped;
-//    flashcard.innerHTML = flipped ? sideB : sideA;
-	flashcard.innerHTML = flipped ? flashcards[flashcardIdx].definition : flashcards[flashcardIdx].term;
+  flipped = !flipped;
+	everFlipped = true;
+	refreshView();
 }
 
 function flashcard_remember() {
@@ -70,7 +80,8 @@ function flashcard_forgot() {
 
 function flashcard_next() {
 	flipped = false;
+	everFlipped = false;
 	flashcardIdx++;
 	if (flashcardIdx >= flashcards.length) flashcardIdx = 0;
-	flashcard.innerHTML = flashcards[flashcardIdx].term;
+	refreshView();
 }
