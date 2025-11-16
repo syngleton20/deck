@@ -7,6 +7,8 @@ class Flashcard {
 
 let flipped = false, everFlipped = false;
 let flashcardIdx = 0;
+let flashcardCounter = 0;
+let flashcardCount = 0;
 const flashcards = [];
 
 const flashcard = document.querySelector(".flashcard");
@@ -35,7 +37,7 @@ refreshView();
 
 /* Functions */
 function refreshView() {
-	counter.innerHTML = `${flashcards.length > 0 ? (flashcardIdx + 1) : 0} of ${flashcards.length}`;
+	counter.innerHTML = `${flashcardCounter} of ${flashcardCount}`;
 
 	if (flashcards.length > 0 && flashcardIdx >= 0 && flashcardIdx < flashcards.length) {
 		flashcard.style.visibility = 'visible';
@@ -52,6 +54,7 @@ function refreshView() {
 
 function flashcard_open(content) {
 	flashcardIdx = 0;
+	flashcardCounter = 1;
 	flipped = false;
 	everFlipped = false;
 	flashcards.length = 0;
@@ -67,6 +70,7 @@ function flashcard_open(content) {
 		flashcards.push(newFlashcard);
 	}
 
+	flashcardCount = flashcards.length;
 	refreshView();
 }
 
@@ -77,19 +81,24 @@ function flashcard_flip() {
 }
 
 function flashcard_remember() {
-	console.log("REMEMBERED! GOOD JOB");
-	flashcard_next();
+	flashcards.splice(flashcardIdx, 1);
+	flashcard_next(0);
 }
 
 function flashcard_forgot() {
-	console.log("fcking idiot");
-	flashcard_next();
+	flashcard_next(1);
 }
 
-function flashcard_next() {
+function flashcard_next(advance) {
 	flipped = false;
 	everFlipped = false;
-	flashcardIdx++;
-	if (flashcardIdx >= flashcards.length) flashcardIdx = 0;
+	flashcardIdx += advance;
+	flashcardCounter += 1;
+	if (flashcardIdx >= flashcards.length) {
+		flashcardIdx = 0;
+		flashcardCounter = flashcards.length > 0 ? 1 : 0;
+		flashcardCount = flashcards.length;
+	}
+
 	refreshView();
 }
