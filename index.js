@@ -51,6 +51,11 @@ function refreshView() {
 }
 
 function flashcard_open(content) {
+	flashcardIdx = 0;
+	flipped = false;
+	everFlipped = false;
+	flashcards.length = 0;
+
 	const lines = content.split("\n");
 	for (let i = 0; i < lines.length; i++) {
 		const parts = lines[i].split(":");
