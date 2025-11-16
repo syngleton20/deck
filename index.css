@@ -4,6 +4,10 @@
 	box-sizing: border-box;
 }
 
+header {
+	display: flex;
+}
+
 footer {
 	position: absolute;
 	bottom: 0;

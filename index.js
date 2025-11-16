@@ -13,6 +13,7 @@ const flashcard = document.querySelector(".flashcard");
 const openButton = document.querySelector(".open");
 const rememberButton = document.querySelector(".remember");
 const forgotButton = document.querySelector(".forgot");
+const counter = document.querySelector(".counter");
 
 /* Initialization */
 flashcard.addEventListener("click", () => {flashcard_flip()});
@@ -34,6 +35,8 @@ refreshView();
 
 /* Functions */
 function refreshView() {
+	counter.innerHTML = `${flashcards.length > 0 ? (flashcardIdx + 1) : 0} of ${flashcards.length}`;
+
 	if (flashcards.length > 0 && flashcardIdx >= 0 && flashcardIdx < flashcards.length) {
 		flashcard.style.visibility = 'visible';
 		flashcard.innerHTML = flipped ? flashcards[flashcardIdx].definition : flashcards[flashcardIdx].term;
