@@ -8,13 +8,16 @@
 </head>
 <body>
 	<header>
-		<input class="open" type="file"/>
+		<label for="open" class="custom-button no-text-select">
+			<input id="open" type="file"/>
+			Open
+		</label>
 		<p class="counter no-text-select">0 of 0</p>
 	</header>
 	<div class="flashcard no-text-select"></div>
 	<footer class="no-text-select">
-		<button class="remember no-text-select">Remembered</button>
-		<button class="forgot no-text-select">Forgot</button>
+		<button id="remember" class="custom-button no-text-select">Remembered</button>
+		<button id="forgot" class="custom-button no-text-select">Forgot</button>
 	</footer>
 	<script src="index.js"></script>
 </body>

@@ -12,9 +12,9 @@ let flashcardCount = 0;
 const flashcards = [];
 
 const flashcard = document.querySelector(".flashcard");
-const openButton = document.querySelector(".open");
-const rememberButton = document.querySelector(".remember");
-const forgotButton = document.querySelector(".forgot");
+const openButton = document.querySelector("#open");
+const rememberButton = document.querySelector("#remember");
+const forgotButton = document.querySelector("#forgot");
 const counter = document.querySelector(".counter");
 
 /* Initialization */

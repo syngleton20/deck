@@ -19,6 +19,43 @@ footer {
 	bottom: 0;
 }
 
+input[type="file"] {
+	display: none; /* This will be replaced with a label 'for' this input */
+}
+
+.custom-button {
+	display: inline-block;
+
+	background-color: #333;
+	color: #ccc;
+
+	font-size: 15px;
+	font-size: 1.5vw;
+
+	border: none;
+	border-radius: 6px;
+	padding: 6px 12px;
+
+	cursor: pointer;
+}
+
+.custom-button:hover {
+	background-color: #444;
+}
+
+.custom-button:active {
+	background-color: #222;
+	transition: all 0.1s
+}
+
+.file-upload.custom-button {
+	/* display: inline-block; */
+	background-color: #8a0b14;
+	/* border-radius: 6px;
+	padding: 6px 12px;
+	cursor: pointer; */
+}
+
 .no-text-select {
 	-webkit-user-select: none; /* Safari */
 	-ms-user-select: none; /* IE 10 & 11 */
