@@ -1,84 +1,137 @@
+:root {
+	--background: black;
+	--primary-colour: #222;
+	--secondary-colour: #333;
+	--accent-colour: red;
+	--text-colour: #aaa;
+
+	touch-action: none;
+}
+
 * {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
+}	
+
+html {
+	font-family: montserrat, sans-serif;
+	font-size: 16pt;
+	color: var(--text-colour);
 }
 
 body {
-	background-color: black;
-	color: #aaa;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+	width: 100%;
+	min-height: 100vh;
 
-header {
-	text-align: center;
-}
-
-footer {
-	position: absolute;
-	bottom: 0;
+	background-color: var(--background);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 input[type="file"] {
-	display: none; /* This will be replaced with a label 'for' this input */
-}
-
-.custom-button {
-	display: inline-block;
-
-	background-color: #333;
-	color: #ccc;
-
-	font-size: 15px;
-	font-size: 1.5vw;
-
-	border: none;
-	border-radius: 6px;
-	padding: 6px 12px;
-
-	cursor: pointer;
-}
-
-.custom-button:hover {
-	background-color: #444;
-}
-
-.custom-button:active {
-	background-color: #222;
-	transition: all 0.1s
-}
-
-.file-upload.custom-button {
-	/* display: inline-block; */
-	background-color: #8a0b14;
-	/* border-radius: 6px;
-	padding: 6px 12px;
-	cursor: pointer; */
+	display: none;
 }
 
 .no-text-select {
-	-webkit-user-select: none; /* Safari */
-	-ms-user-select: none; /* IE 10 & 11 */
+	-webkit-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
 }
 
-.flashcard {
-	background-color: #222;
-	border-radius: 12px;
+.view {
+	margin: 10px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
 
-	font-size: 30px;
-	font-size: 3.5vw;
+.start-view {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	justify-content: center;
+	align-items: center;
+}
 
+.card-view {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 12px minmax(auto, 48px);
+	grid-template-areas: "card card"
+											 "info info"
+											 "remember forgot";
+
+	gap: 10px;
+}
+
+.button {
+	background-color: var(--background);
+	color: #aaa;
+	padding: 6px 12px;
+	border: 1px solid var(--secondary-colour);
+	border-radius: 8px;
+}
+
+.button:hover {
+	background-color: var(--primary-colour);
+}
+
+.button:active {
+	background-color: #444;
+}
+
+.card-container {
+	/* display: flex;
+	flex-direction: column;
+	justify-content: center; */
+
+	display: grid;
+
+	grid-area: card;
+	border-radius: 8px;
+	border: 1px solid var(--secondary-colour);
+	overflow: hidden;
+}
+
+.card {
+	background-color: var(--primary-colour);
+
+	font-size: 1.25rem;
+
+	display: flex;
+	flex-grow: 1;
+
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+#open {
+	grid-area: open-button;
+}
+
+#remember {
+	grid-area: remember;
+}
+
+#forgot {
+	grid-area: forgot;
+}
+
+#counter {
+	grid-area: info;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	vertical-align: middle;
+	font-size: 0.65rem;
+}
 
-	margin: 6%;
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	bottom: 0px;
-	left: 0px;
+
+.hidden {
+	display: none;
+	pointer-events: none;
 }

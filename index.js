@@ -5,17 +5,23 @@ class Flashcard {
 	}
 }
 
+let view = 0;
+const views = [
+	document.getElementById("start-view"),
+	document.getElementById("card-view"),
+];
+
 let flipped = false, everFlipped = false;
 let flashcardIdx = 0;
 let flashcardCounter = 0;
 let flashcardCount = 0;
 const flashcards = [];
 
-const flashcard = document.querySelector(".flashcard");
-const openButton = document.querySelector("#open");
-const rememberButton = document.querySelector("#remember");
-const forgotButton = document.querySelector("#forgot");
-const counter = document.querySelector(".counter");
+const flashcard = document.getElementById("flashcard");
+const openButton = document.getElementById("open");
+const rememberButton = document.getElementById("remember");
+const forgotButton = document.getElementById("forgot");
+const counter = document.getElementById("counter");
 
 /* Initialization */
 flashcard.addEventListener("click", () => {flashcard_flip()});
@@ -37,6 +43,15 @@ refreshView();
 
 /* Functions */
 function refreshView() {
+	for (let i = 0; i < views.length; i++) {
+		const visible = i == view;
+		if (visible) {
+			if (views[i].classList.contains("hidden")) views[i].classList.remove("hidden");
+		} else {
+			if (!views[i].classList.contains("hidden")) views[i].classList.add("hidden");
+		}
+	}
+
 	counter.innerHTML = `${flashcardCounter} of ${flashcardCount}`;
 
 	if (flashcards.length > 0 && flashcardIdx >= 0 && flashcardIdx < flashcards.length) {
@@ -71,6 +86,7 @@ function flashcard_open(content) {
 	}
 
 	flashcardCount = flashcards.length;
+	view = 1;
 	refreshView();
 }
 
@@ -98,6 +114,10 @@ function flashcard_next(advance) {
 		flashcardIdx = 0;
 		flashcardCounter = flashcards.length > 0 ? 1 : 0;
 		flashcardCount = flashcards.length;
+
+		if (flashcards.length <= 0) {
+			view = 0;
+		}
 	}
 
 	refreshView();

@@ -7,18 +7,21 @@
 	<title>Deck</title>
 </head>
 <body>
-	<header>
-		<label for="open" class="custom-button no-text-select">
-			<input id="open" type="file"/>
-			Open
+	<div class="view start-view" id="start-view">
+		<h1>Deck</h1>
+		<label for="open" class="button no-text-select">
+			<input type="file" id="open"/>Open
 		</label>
-		<p class="counter no-text-select">0 of 0</p>
-	</header>
-	<div class="flashcard no-text-select"></div>
-	<footer class="no-text-select">
-		<button id="remember" class="custom-button no-text-select">Remembered</button>
-		<button id="forgot" class="custom-button no-text-select">Forgot</button>
-	</footer>
+	</div>
+	<div class="view card-view" id="card-view">
+		<div class="card-container">
+			<div class="no-text-select card" id="flashcard" onclick="flashcard_flip">Sample Text</div>
+		</div>
+		<p class="no-text-select" id="counter">0 of 0</p>
+		<button class="button" id="remember">✔</button>
+		<button class="button" id="forgot">✖</button>
+	</div>
+
 	<script src="index.js"></script>
 </body>
 </html>
