@@ -1,9 +1,11 @@
 :root {
 	--background: black;
-	--primary-colour: #222;
+	--primary-colour: #1a1a1a;
 	--secondary-colour: #333;
 	--accent-colour: red;
 	--text-colour: #aaa;
+	--positive-colour: rgb(0, 255, 125);
+	--negative-colour: rgb(255, 0, 65);
 
 	touch-action: none;
 }
@@ -73,6 +75,10 @@ input[type="file"] {
 	padding: 6px 12px;
 	border: 1px solid var(--secondary-colour);
 	border-radius: 8px;
+
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .button:hover {
@@ -83,11 +89,41 @@ input[type="file"] {
 	background-color: #444;
 }
 
-.card-container {
-	/* display: flex;
-	flex-direction: column;
-	justify-content: center; */
+.button#remember {
+	border: 1px solid rgb(from var(--positive-colour) r g b / 30%);
+	color: rgb(from var(--positive-colour) r g b / 75%);
+}
 
+.button#remember:hover {
+	background-color: rgb(from var(--positive-colour) r g b / 10%);
+	color: var(--positive-colour);
+	border: 1px solid rgb(from var(--positive-colour) r g b / 60%);
+}
+
+.button#remember:active {
+	background-color: rgb(from var(--positive-colour) r g b / 30%);
+	color: var(--positive-colour);
+	border: 1px solid var(--positive-colour);
+}
+
+.button#forgot {
+	border: 1px solid rgb(from var(--negative-colour) r g b / 40%);
+	color: rgb(from var(--negative-colour) r g b / 75%);
+}
+
+.button#forgot:hover {
+	background-color: rgb(from var(--negative-colour) r g b / 10%);
+	color: var(--negative-colour);
+	border: 1px solid rgb(from var(--negative-colour) r g b / 60%);
+}
+
+.button#forgot:active {
+	background-color: rgb(from var(--negative-colour) r g b / 30%);
+	color: var(--negative-colour);
+	border: 1px solid var(--negative-colour);
+}
+
+.card-container {
 	display: grid;
 
 	grid-area: card;
