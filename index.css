@@ -7,7 +7,7 @@
 	--positive-colour: rgb(0, 255, 125);
 	--negative-colour: rgb(255, 0, 65);
 
-	touch-action: manipulation;
+	touch-action: none;
 }
 
 * {
@@ -83,6 +83,9 @@ input[type="file"] {
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
 }
 
 .button:hover {
