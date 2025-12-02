@@ -1,185 +1,100 @@
 :root {
-	--background: black;
-	--primary-colour: #1a1a1a;
-	--secondary-colour: #333;
-	--accent-colour: red;
-	--text-colour: #aaa;
-	--positive-colour: rgb(0, 255, 125);
-	--negative-colour: rgb(255, 0, 65);
+	color-scheme: light dark;
+}
 
-	touch-action: none;
+@media (prefers-color-scheme: light) {
+	:root {
+		--bg: #cfcfcf;
+		--fg: #121212;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #121212;
+		--fg: #cfcfcf;
+	}
+}
+
+:root:has(#theme-select [value="light"]:checked) {
+	color-scheme: light;
+	--bg: #cfcfcf;
+	--fg: #121212;
+}
+
+:root:has(#theme-select [value="dark"]:checked) {
+	color-scheme: dark;
+	--bg: #121212;
+	--fg: #cfcfcf;
 }
 
 * {
 	margin: 0;
 	padding: 0;
-}	
+}
 
-html {
-	font-family: montserrat, sans-serif;
-	font-size: 16pt;
-	color: var(--text-colour);
-
-	touch-action: manipulation;
+html,
+body {
+	background-color: var(--bg);
+	color: var(--fg);
+	min-height: 100vh;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 body {
-	width: 100%;
-	min-height: 100vh;
-
-	background-color: var(--background);
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 }
 
-input[type="file"] {
+main {
+	display: flex;
+	flex-grow: 1;
+	align-items: center;
+	justify-items: center;
+	text-align: center;
+	background-color: greenyellow;
+}
+
+nav {
+	height: 3em;
+	border-bottom: 1px solid darkgrey;
+}
+
+	nav ul {
+		list-style: none;
+		display: flex;
+		justify-items: center;
+		align-items: center;
+	}
+
+		nav ul li button {
+			height: 3em;
+		}
+
+input[type='checkbox'] {
 	display: none;
 }
 
-.no-text-select {
-	-webkit-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
-.view {
-	margin: 10px;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-}
-
-.start-view {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-	justify-content: center;
-	align-items: center;
-}
-
-.card-view {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 12px minmax(auto, 48px);
-	grid-template-areas: "card card"
-											 "info info"
-											 "remember forgot";
-
-	gap: 10px;
-}
-
+button,
 .button {
 	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	background-color: var(--background);
-	color: #aaa;
-	padding: 6px 12px;
-	border: 1px solid var(--secondary-colour);
-	border-radius: 8px;
-
-	-webkit-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
 }
 
-.button:hover {
-	background-color: var(--primary-colour);
+.navbar-leftmost {
+	margin-right: auto;
 }
 
-.button:active {
-	background-color: #444;
-}
-
-.button#remember {
-	border: 1px solid rgb(from var(--positive-colour) r g b / 30%);
-	color: rgb(from var(--positive-colour) r g b / 75%);
-}
-
-.button#remember:hover {
-	background-color: rgb(from var(--positive-colour) r g b / 10%);
-	color: var(--positive-colour);
-	border: 1px solid rgb(from var(--positive-colour) r g b / 60%);
-}
-
-.button#remember:active {
-	background-color: rgb(from var(--positive-colour) r g b / 30%);
-	color: var(--positive-colour);
-	border: 1px solid var(--positive-colour);
-}
-
-.button#forgot {
-	border: 1px solid rgb(from var(--negative-colour) r g b / 40%);
-	color: rgb(from var(--negative-colour) r g b / 75%);
-}
-
-.button#forgot:hover {
-	background-color: rgb(from var(--negative-colour) r g b / 10%);
-	color: var(--negative-colour);
-	border: 1px solid rgb(from var(--negative-colour) r g b / 60%);
-}
-
-.button#forgot:active {
-	background-color: rgb(from var(--negative-colour) r g b / 30%);
-	color: var(--negative-colour);
-	border: 1px solid var(--negative-colour);
-}
-
-.card-container {
-	display: grid;
-
-	grid-area: card;
-	border-radius: 8px;
-	border: 1px solid var(--secondary-colour);
-	overflow: hidden;
+.navbar-rightmost {
+	margin-left: auto;
 }
 
 .card {
-	background-color: var(--primary-colour);
-
-	font-size: 1.25rem;
-
 	display: flex;
 	flex-grow: 1;
-
+	background-color: red;
+	align-content: center;
 	justify-content: center;
-	align-items: center;
 	text-align: center;
-
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
-}
-
-#open {
-	grid-area: open-button;
-}
-
-#remember {
-	grid-area: remember;
-}
-
-#forgot {
-	grid-area: forgot;
-}
-
-#counter {
-	grid-area: info;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	font-size: 0.65rem;
-}
-
-
-.hidden {
-	display: none;
-	pointer-events: none;
 }
