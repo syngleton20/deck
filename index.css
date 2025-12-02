@@ -1,5 +1,6 @@
 :root {
 	color-scheme: light dark;
+	touch-action: none;
 }
 
 @media (prefers-color-scheme: light) {
@@ -31,6 +32,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
 
 html,
@@ -50,11 +52,11 @@ body {
 
 main {
 	display: flex;
-	flex-grow: 1;
+	flex-direction: column;
+	flex: 1 1 auto;
 	align-items: center;
 	justify-items: center;
 	text-align: center;
-	background-color: greenyellow;
 }
 
 nav {
@@ -93,8 +95,6 @@ button,
 .card {
 	display: flex;
 	flex-grow: 1;
-	background-color: red;
-	align-content: center;
-	justify-content: center;
-	text-align: center;
+	flex-direction: column;
+	background-color: #888;
 }

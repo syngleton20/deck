@@ -1,8 +1,45 @@
+let flipped = false;
+const card = document.getElementById("card");
+function flipCard() {
+	flipped = !flipped;
+	card.innerHTML = flipped ? "Flipped successfully!" : "Testing, testing, 1, 2, 3...";
+}
+
 /* Initialization */
 window.addEventListener('touchstart', evt => { }, { passive: true });
 
-window.addEventListener("load", function () {
-    setTimeout(function () {
-        window.scrollTo(0, 1);
-    }, 0);
-});
+(function (win) {
+	var doc = win.document;
+
+	// If there's a hash, or addEventListener is undefined, stop here
+	if (!location.hash && win.addEventListener) {
+
+		//scroll to 1
+		win.scrollTo(0, 1);
+		var scrollTop = 1,
+			getScrollTop = function () {
+				return win.pageYOffset || doc.compatMode === "CSS1Compat" && doc.documentElement.scrollTop || doc.body.scrollTop || 0;
+			},
+
+			//reset to 0 on bodyready, if needed
+			bodycheck = setInterval(function () {
+				if (doc.body) {
+					clearInterval(bodycheck);
+					scrollTop = getScrollTop();
+					win.scrollTo(0, scrollTop === 1 ? 0 : 1);
+				}
+			}, 15);
+
+		win.addEventListener("load", function () {
+			setTimeout(function () {
+				//at load, if user hasn't scrolled more than 20 or so...
+				if (getScrollTop() < 20) {
+					//reset to hide addr bar at onload
+					win.scrollTo(0, scrollTop === 1 ? 0 : 1);
+				}
+			}, 0);
+		}, false);
+	}
+})(this);
+
+alert("Testing, testing, 1, 2, 3...");
