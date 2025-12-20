@@ -37,9 +37,10 @@
 
 html,
 body {
+	overflow: hidden;
 	background-color: var(--bg);
 	color: var(--fg);
-	min-height: 100vh;
+	min-height: 200vh;
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
@@ -59,21 +60,30 @@ main {
 	text-align: center;
 }
 
+header {
+	background-color: var(--bg);
+	position: absolute;
+	top: 100vh;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+}
+
 nav {
 	height: 3em;
 	border-bottom: 1px solid darkgrey;
 }
 
-	nav ul {
-		list-style: none;
-		display: flex;
-		justify-items: center;
-		align-items: center;
-	}
+nav ul {
+list-style: none;
+display: flex;
+justify-items: center;
+align-items: center;
+}
 
-		nav ul li button {
-			height: 3em;
-		}
+nav ul li button {
+	height: 3em;
+}
 
 input[type='checkbox'] {
 	display: none;
@@ -96,5 +106,7 @@ button,
 	display: flex;
 	flex-grow: 1;
 	flex-direction: column;
+	justify-content: flex-end;
+	font-weight: bold;
 	background-color: #888;
 }
