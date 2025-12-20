@@ -37,10 +37,9 @@
 
 html,
 body {
-	overflow: hidden;
 	background-color: var(--bg);
 	color: var(--fg);
-	min-height: 200vh;
+	min-height: 100vh;
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
@@ -58,15 +57,6 @@ main {
 	align-items: center;
 	justify-items: center;
 	text-align: center;
-}
-
-header {
-	background-color: var(--bg);
-	position: absolute;
-	top: 100vh;
-	left: 0;
-	right: 0;
-	overflow: hidden;
 }
 
 nav {
