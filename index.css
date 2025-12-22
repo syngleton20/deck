@@ -16,6 +16,7 @@
 html, body {
     overflow-x: hidden;
 	overflow-y: hidden;
+	touch-action: none;
 }
 
 html {
@@ -181,5 +182,6 @@ input[type="file"] {
 	pointer-events: none;
 
 }
+
 
 
