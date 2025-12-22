@@ -17,8 +17,6 @@ html {
 	font-family: montserrat, sans-serif;
 	font-size: 16pt;
 	color: var(--text-colour);
-
-	touch-action: manipulation;
 }
 
 body {
@@ -182,3 +180,4 @@ input[type="file"] {
 	pointer-events: none;
 
 }
+
