@@ -13,6 +13,11 @@
 	padding: 0;
 }	
 
+html, body {
+    overflow-x: hidden;
+	overflow-y: hidden;
+}
+
 html {
 	font-family: montserrat, sans-serif;
 	font-size: 16pt;
@@ -27,6 +32,8 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	position: relative;
 }
 
 input[type="file"] {
@@ -81,9 +88,6 @@ input[type="file"] {
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
 }
 
 .button:hover {
@@ -148,9 +152,6 @@ input[type="file"] {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
 }
 
 #open {
@@ -180,4 +181,5 @@ input[type="file"] {
 	pointer-events: none;
 
 }
+
 
