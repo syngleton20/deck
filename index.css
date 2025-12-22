@@ -6,8 +6,6 @@
 	--text-colour: #aaa;
 	--positive-colour: rgb(0, 255, 125);
 	--negative-colour: rgb(255, 0, 65);
-
-	touch-action: none;
 }
 
 * {
@@ -182,4 +180,5 @@ input[type="file"] {
 .hidden {
 	display: none;
 	pointer-events: none;
+
 }
