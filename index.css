@@ -20,12 +20,12 @@ html {
 }
 
 html, body {
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 
 body {
 	width: 100%;
-	min-height: 100vh;
+	/*min-height: 100vh;*/
 
 	background-color: var(--background);
 	display: flex;
@@ -178,6 +178,7 @@ input[type="file"] {
 	pointer-events: none;
 
 }
+
 
 
 
