@@ -19,6 +19,10 @@ html {
 	color: var(--text-colour);
 }
 
+html, body {
+	overflow: hidden;
+}
+
 body {
 	width: 100%;
 	min-height: 100vh;
@@ -27,8 +31,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
-	overflow: hidden;
 }
 
 input[type="file"] {
@@ -176,6 +178,7 @@ input[type="file"] {
 	pointer-events: none;
 
 }
+
 
 
 
