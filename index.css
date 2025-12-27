@@ -20,7 +20,7 @@ html {
 }
 
 html, body {
-	/*overflow: hidden;*/
+	overflow: hidden;
 }
 
 body {
@@ -70,7 +70,7 @@ input[type="file"] {
 
 	gap: 10px;
 }
-
+/*
 .button {
 	display: flex;
 	justify-content: center;
@@ -128,7 +128,7 @@ input[type="file"] {
 	color: var(--negative-colour);
 	border: 1px solid var(--negative-colour);
 }
-
+*/
 .card-container {
 	display: grid;
 
@@ -178,6 +178,7 @@ input[type="file"] {
 	pointer-events: none;
 
 }
+
 
 
 
